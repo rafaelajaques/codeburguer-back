@@ -3,9 +3,9 @@ import User from '../models/User'
 
 class UserController{
     async store (request, response){
-        const { name, email, password_hash, admin} = body.request
+        const { name, email, password_hash, admin} = request.body
 
-        const user = ({
+        const user = await User.create({
             id: v4(),
             name,
             email,
